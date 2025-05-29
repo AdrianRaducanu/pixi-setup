@@ -25,25 +25,18 @@ export default class Engine {
         this.app = new Application();
 
         await this.app.init({
-            background: '#cbdae3',
+            background: '#000',
             width: 1920,
             height: 1080,
         })
         globalThis.__PIXI_APP__ = this.app;
 
         container.appendChild(this.app.canvas);
-        //
-        // const texture = await Assets.load('/vite.svg');
-        // const sprite = new Sprite(texture);
-        //
-        // this.app.stage.addChild(sprite);
     }
 
-    createStage(jsonFile) {
-        const pixiTree = Builder.build(jsonFile, this.stageObjects);
+    async createStage(jsonFile) {
+        const pixiTree = await Builder.build(jsonFile, this.stageObjects);
         this.addInStage(pixiTree);
-
-        console.log(this.getFromStage('g1'))
     }
 
     addInStage(obj) {

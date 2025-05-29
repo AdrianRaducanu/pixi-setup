@@ -2,14 +2,14 @@ import Factory from "./Factory.js";
 
 
 export default class Builder {
-    static build(data, stageObjects) {
+    static async build(data, stageObjects) {
         const root = Object.keys(data)[0];
-        return this._buildTree(data[root], stageObjects);
+        return await this._buildTree(data[root], stageObjects);
     }
 
-    static _buildTree(node, stageObjects) {
+    static async _buildTree(node, stageObjects) {
 
-        const displayObject = Factory.create(node);
+        const displayObject = await Factory.create(node);
         if (!displayObject) return null;
 
         if (node.name) {
@@ -17,14 +17,14 @@ export default class Builder {
         }
 
         if (Array.isArray(node.children)) {
-            node.children.forEach(childData => {
-                const child = this._buildTree(childData, stageObjects);
+            for (const childData of node.children) {
+                const child = await this._buildTree(childData, stageObjects);
                 if (child) {
                     displayObject.addChild(child);
                 } else {
                     console.warn("Invalid child:", childData);
                 }
-            });
+            }
         }
 
         return displayObject;

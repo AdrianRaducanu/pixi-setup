@@ -7,5 +7,5 @@ const response = await fetch('./stage.json');
 const jsonFile = await response.json();
 
 await Engine.instance.initialize(canvasContainer);
-Engine.instance.createStage(jsonFile);
+await Engine.instance.createStage(jsonFile);
 

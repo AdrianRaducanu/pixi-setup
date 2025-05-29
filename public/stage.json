@@ -11,8 +11,8 @@
         "name": "g1",
         "type": "container",
         "position": {
-          "x": 100,
-          "y": 100
+          "x": 0,
+          "y": 0
         },
         "children": [
           {
@@ -22,16 +22,53 @@
               "x": 0,
               "y": 0
             },
-            "color": "#ff0000"
+            "dimension": {
+              "x": 0,
+              "y": 0,
+              "w": 1920,
+              "h": 1080
+            },
+            "color": "#3fb6ba"
           },
           {
             "name": "textG1",
             "type": "text",
             "position": {
-              "x": 0,
-              "y": 0
+              "x": 960,
+              "y": 540
             },
+            "isCentered": true,
             "text": "Welcome to our brand"
+          }
+        ]
+      },
+      {
+        "name": "g2",
+        "type": "container",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "children": [
+          {
+            "name": "bgImageG2",
+            "type": "image",
+            "resource": "bg.jpg",
+            "position": {
+              "x": 960,
+              "y": 540
+            },
+            "isCentered": true
+          },
+          {
+            "name": "productImageG2",
+            "type": "image",
+            "resource": "product.png",
+            "position": {
+              "x": 960,
+              "y": 540
+            },
+            "isCentered": true
           }
         ]
       }

@@ -10,6 +10,7 @@
       {
         "name": "g1",
         "type": "container",
+        "alpha": 0,
         "position": {
           "x": 0,
           "y": 0
@@ -49,6 +50,7 @@
           "x": 0,
           "y": 0
         },
+        "alpha": 0,
         "children": [
           {
             "name": "bgImageG2",
@@ -69,6 +71,54 @@
               "y": 540
             },
             "isCentered": true
+          }
+        ]
+      },
+      {
+        "name": "btns",
+        "type": "container",
+        "position": {
+          "x": 200,
+          "y": 10
+        },
+        "children": [
+          {
+            "name": "btnPlay",
+            "type": "graphics",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "dimension": {
+              "x": 0,
+              "y": 0,
+              "w": 50,
+              "h": 20
+            },
+            "color": "#3cbd5f",
+            "interactive": {
+              "trigger": "pointerdown",
+              "action": "pause"
+            }
+          },
+          {
+            "name": "btnPlay",
+            "type": "graphics",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "dimension": {
+              "x": 100,
+              "y": 0,
+              "w": 50,
+              "h": 20
+            },
+            "color": "#bf375e",
+            "interactive": {
+              "trigger": "pointerdown",
+              "action": "pause"
+            }
           }
         ]
       }

@@ -1,20 +1,11 @@
 import './style.css'
-import {Application, Assets, Sprite} from "pixi.js";
+import Engine from "./engine/Engine.js";
 
+const canvasContainer = document.getElementById('app');
 
-const app = new Application();
+const response = await fetch('./stage.json');
+const jsonFile = await response.json();
 
-await app.init({
-    background: '#cbdae3',
-    width: 1920,
-    height: 1080,
-})
-globalThis.__PIXI_APP__ = app;
+await Engine.instance.initialize(canvasContainer);
+Engine.instance.createStage(jsonFile);
 
-const canvasEl = document.getElementById('app');
-canvasEl.appendChild(app.canvas);
-
-const texture = await Assets.load('./public/vite.svg');
-const sprite = new Sprite(texture);
-
-app.stage.addChild(sprite);

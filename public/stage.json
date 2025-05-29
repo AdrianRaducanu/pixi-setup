@@ -1,0 +1,40 @@
+{
+  "mainStage": {
+    "name": "main-stage",
+    "type": "container",
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "children": [
+      {
+        "name": "g1",
+        "type": "container",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "children": [
+          {
+            "name": "graphicsG1",
+            "type": "graphics",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "color": "#ff0000"
+          },
+          {
+            "name": "textG1",
+            "type": "text",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "text": "Welcome to our brand"
+          }
+        ]
+      }
+    ]
+  }
+}

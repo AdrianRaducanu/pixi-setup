@@ -1,4 +1,5 @@
 import {Assets, Container, Graphics, Sprite, Text} from "pixi.js";
+import FeaturesFactory from "./FeaturesFactory.js";
 
 export default class Factory {
     static async create(obj) {
@@ -23,21 +24,39 @@ export default class Factory {
                 console.warn("Unknown type: ", obj.type);
                 break;
         }
+        this.addProperties(obj, displayObject);
+        this.addFeatures(obj, displayObject);
+
+        return displayObject;
+    }
+
+    static addProperties(obj, displayObject) {
         displayObject.visible = obj.visible ?? true;
         displayObject.alpha = obj.alpha ?? true;
 
         displayObject.position.set(obj.position.x, obj.position.y);
         displayObject.label = obj.name;
         if (obj.isCentered) {
-            displayObject.anchor.set(0.5);
+            displayObject.pivot.set(displayObject.width/ 2, displayObject.height / 2)
         }
+    }
 
-        // if (obj.interactive) {
-        //     displayObject.eventMode = 'static';
-        //     displayObject.cursor = 'pointer';
-        //     displayObject.on(obj.interactive.trigger, AnimationManager.instance.actions[obj.interactive.action]());
-        // }
-
-        return displayObject;
+    static addFeatures(obj, displayObject) {
+        if(obj.resizeable && obj.draggable) {
+            displayObject.eventMode = 'static';
+            displayObject.isDraggable = true;
+            displayObject.isResizable = true;
+            FeaturesFactory.makeInteractive(displayObject);
+        }
+        else if(obj.resizeable) {
+            displayObject.eventMode = 'static';
+            displayObject.isResizable = true;
+            FeaturesFactory.makeResizable(displayObject);
+        }
+        else if(obj.draggable) {
+            displayObject.eventMode = 'static';
+            displayObject.isDraggable = true;
+            FeaturesFactory.makeDraggable(displayObject);
+        }
     }
 }

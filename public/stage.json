@@ -78,47 +78,27 @@
         "name": "btns",
         "type": "container",
         "position": {
-          "x": 200,
-          "y": 10
+          "x": 0,
+          "y": 0
         },
         "children": [
           {
             "name": "btnPlay",
             "type": "graphics",
             "position": {
-              "x": 0,
-              "y": 0
+              "x": 960,
+              "y": 540
             },
             "dimension": {
               "x": 0,
               "y": 0,
-              "w": 50,
-              "h": 20
-            },
-            "color": "#3cbd5f",
-            "interactive": {
-              "trigger": "pointerdown",
-              "action": "pause"
-            }
-          },
-          {
-            "name": "btnPlay",
-            "type": "graphics",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
-            "dimension": {
-              "x": 100,
-              "y": 0,
-              "w": 50,
-              "h": 20
+              "w": 100,
+              "h": 50
             },
             "color": "#bf375e",
-            "interactive": {
-              "trigger": "pointerdown",
-              "action": "pause"
-            }
+            "isCentered": true,
+            "resizeable": true,
+            "draggable": true
           }
         ]
       }
